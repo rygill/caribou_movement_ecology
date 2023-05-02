@@ -12,4 +12,6 @@ In places where data formatting requires changing period lines are denoted with:
 
 06.extract.raster.95.hr.estimate.r - extracts the mean value of each of the landscape rasters for each home range for each period. The results for each individual for each period are appended to the results from script 05 to create a new dataset named Caribou_reesults_with_error_covariates_230214.csv
 
-07.HR_Regression
+07.HR_Regression - fits a generalized linear mixed model using the lme4 package to home range estimates.
+
+08.diffusion.regression - fits a generalized linear mixed effects model using the lme4 package to diffusion estimates.
