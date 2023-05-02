@@ -1,5 +1,5 @@
 Scripts to conduct data prep, outlier detection, home range calculation and analysis and rsfs. Files are run in their numeric order. 
-In places where data formatting requires changing period lines are denoted with: /n
+In places where data formatting requires changing period lines are denoted with: <br>
 #-----------------------CHANGE PERIOD------------------------------------------#
 
 01.data_prep.r - reads in complete, raw dataset provided by the Knowledge Management Branch, cleans mortality status, removes collar locations from penned animals, creates fields to use for the moving window analysis.
