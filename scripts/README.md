@@ -2,7 +2,7 @@ Scripts to conduct data prep, outlier detection, home range calculation and anal
 In places where data formatting requires changing period lines are denoted with: <br>
 #-----------------------CHANGE PERIOD------------------------------------------#
 
-01.data_prep.r - reads in complete, raw dataset provided by the Knowledge Management Branch, cleans mortality status, removes collar locations from penned animals, creates fields to use for the moving window analysis.
+01.data_prep.r - reads in complete, raw dataset provided by the Knowledge Management Branch (complete_data_220526.csv), cleans mortality status, removes collar locations from penned animals, creates fields to use for the moving window analysis.
 
 02.outlier.detection.r - uses output from previous file to format for ctmm functions to assess for outliers. Assigns outlier status to points based on movement speed, collar behaviour around mortality events, and points that do not have high DOP values, but plotting and visually inspecting reveals them as outliers. 
 
