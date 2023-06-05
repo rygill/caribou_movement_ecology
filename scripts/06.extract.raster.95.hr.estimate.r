@@ -1,5 +1,6 @@
-#script to extract raster covariates and assign to each of the 95% HR polygons
-#for each period home range estimates for each animal were merged as single
+#Script to extract raster covariates and assign to each of the 95% HR polygons.
+
+#For each period home range estimates for each animal were merged as single
 #features into one shapefile for simplicity of extracting raster covariates
 
 #using 'mean' as the function.
