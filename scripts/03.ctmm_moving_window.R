@@ -44,9 +44,10 @@ dat = dat[!(dat$id %in% c(32597, 32598)),]
 #  distinct(individual.local.identifier)
 #-------------------------------------------------------------------------------
 
-#change this to each period and run:
-period = 'during'
-
+#-----------------------CHANGE PERIOD------------------------------------------#
+#change this to each period and run: prior2, prior1, during, after
+period = 'prior2'
+#-----------------------CHANGE PERIOD------------------------------------------#
 tel.dat = droplevels(dat[dat$during == 1 & !(dat$individual.local.identifier %in% c(44095, 81365)),])
 tel.dat = droplevels(dat[dat$during == 1 & dat$individual.local.identifier > 29103,])
 
@@ -57,6 +58,9 @@ data = as.telemetry(tel.dat, timeformat = '%Y-%m-%d %H:%M:%S', timezone = 'UTC')
 #after fail: 42139, 81295
 collars = tel.dat %>% distinct(individual.local.identifier)
 
+#create directories
+dir.create(paste0("./data/input_data/moving_window/", period, "/Fits"), recursive = TRUE)
+dir.create(paste0("./data/input_data/moving_window/", period, "/UDs"), recursive = TRUE)
 
 window.HR <- function(data, dt, win, Fig_Path, Result_Path, UD_path){
   DATA = data
