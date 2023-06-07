@@ -13,7 +13,6 @@ library(ctmm)
 library(lutz)
 library(tidyr)
 library(dplyr)
-#library(plyr)
 library(stringr)
 library(ggplot2)
 library(lubridate)
@@ -47,18 +46,25 @@ dat = dat[!(dat$id %in% c(32597, 32598)),]
 #-----------------------CHANGE PERIOD------------------------------------------#
 #change this to each period and run: prior2, prior1, during, after
 period = 'prior2'
+
+#some collars within each period cause the script to crash. The likely reason is 
+#there are fixes for a shorter period of time than the window. Remove these here:
+prior1_fail <- c(44095, 81365, 81330,29098, 81331, 81365)
+prior2_fail <- c(44095, 81365, 22563, 22565, 29092, 29094, 30613, 81321)
+during_fail <- c(44095, 81365, 42144, 44094, 81365)
+after_fail <- c(44095, 81365, 42139, 81295)
+
+#create a variable holding those collars
+pfail = paste0(period, "_fail")
+
 #-----------------------CHANGE PERIOD------------------------------------------#
-tel.dat = droplevels(dat[dat$during == 1 & !(dat$individual.local.identifier %in% c(44095, 81365)),])
-tel.dat = droplevels(dat[dat$during == 1 & dat$individual.local.identifier > 29103,])
+tel.dat = droplevels(dat[dat$during == 1 & !(dat$individual.local.identifier %in% pfail),]) #c(44095, 81365)
 
 data = as.telemetry(tel.dat, timeformat = '%Y-%m-%d %H:%M:%S', timezone = 'UTC') 
-#prior1 fail: 81330 #29098 #81331 #81365
-#prior2 fail: 22563, 22565, 29092, 29094, 30613, 81321
-#during fail: #42144, 44094, 81365
-#after fail: 42139, 81295
+
 collars = tel.dat %>% distinct(individual.local.identifier)
 
-#create directories
+#create directories to hold output:
 dir.create(paste0("./data/input_data/moving_window/", period, "/Fits"), recursive = TRUE)
 dir.create(paste0("./data/input_data/moving_window/", period, "/UDs"), recursive = TRUE)
 
@@ -520,6 +526,3 @@ write.csv(run.cs, './data/input_data/home_range/CS_220605_clean_data_formatted_f
 
 
 #EOF
-
-
-
