@@ -17,17 +17,17 @@ str(dat1)
 #-------------------------------------------------------------------------------
 #just some exploration:
 #how many collars are there available?
-collar.year = as.data.frame(table(dat1$sy,dat1$collar_id))
-collar.year = collar.year[collar.year$Freq > 0,] #66 collars active during the lockdown
-
-collar.use = collar.year %>%
-  group_by(Var2) %>%
-  summarize(n_distinct())
-
-dat3 = dat1[,c('collar_id', 'herd')]
-dat3 = dat3 %>%
-  group_by(herd) %>%
-  summarize(n_distinct(collar_id, herd))
+#collar.year = as.data.frame(table(dat1$sy,dat1$collar_id))
+#collar.year = collar.year[collar.year$Freq > 0,] #66 collars active during the lockdown
+#
+#collar.use = collar.year %>%
+#  group_by(Var2) %>%
+#  summarize(n_distinct())
+#
+#dat3 = dat1[,c('collar_id', 'herd')]
+#dat3 = dat3 %>%
+#  group_by(herd) %>%
+#  summarize(n_distinct(collar_id, herd))
 #-------------------------------------------------------------------------------
 #carpentry:
 dat1$collar_id = as.factor(dat1$collar_id)
