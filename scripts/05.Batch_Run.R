@@ -9,7 +9,7 @@ library(geosphere)
 library(ctmm)
 
 getwd()
-#setwd('../ABMI/caribou_anthropause')
+
 source("./scripts/Fit_Mods.R")
 
 #read calibration data:
