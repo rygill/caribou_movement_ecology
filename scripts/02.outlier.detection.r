@@ -6,8 +6,9 @@ rm(list = ls())
 library(dplyr)
 library(ctmm)
 
+#just to check where we are
 getwd()
-setwd('../OneDrive/ABMI/caribou_anthropause/git_caribou/caribou_movement_ecology')
+#setwd('../OneDrive/ABMI/caribou_anthropause/git_caribou/caribou_movement_ecology')
 
 #read in data for moving window analysis:
 dat1 = read.csv('./data/input_data/220526_moving_window_dat.csv')
