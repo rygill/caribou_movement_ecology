@@ -102,7 +102,12 @@ dat.d$Year = as.numeric(round(dat.d$Year,0))
 
 #clean up one more time:
 col.dat = as.data.frame(colnames(dat.d))
-dat.d = dat.d[,c(1,2,28,3:27)]
+names(dat.d)
+dat.d = dat.d[,c("ID","period","herd","Year","Lat","Long","Frequency","Duration",
+                 "n","tau_p","tau_p_min","tau_p_max","tau_v","tau_v_min","tau_v_max",      
+                 "diffusion","diffusion_min","diffusion_max","HR","HR_min","HR_max",
+                 "Speed","Speed_min","Speed_max","elev_220809","slope_220809",
+                 "proj_age_220809","heli_ten_220809")]
 
 write.csv(dat.d, './data/home_range/Caribou_results_with_error_covariates_230214.csv', row.names = FALSE)
 
