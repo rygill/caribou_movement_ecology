@@ -63,7 +63,7 @@ dat.df$BINOMIAL = period
 dat.df$ID = stri_sub(dat.df$name, from = 0, to = 5)
 dat.cols = as.data.frame(colnames(dat.df))
 
-dat.a = dat.df[,c(8,9,4:7)]
+dat.a = dat.df[,c("BINOMIAL","ID","elev_220809","slope_220809","proj_age_220809","heli_ten_220809")]
 
 write.csv(dat.a, paste0('./data/home_range/',period,'/',period,'_covariates_95_230214.csv'), row.names = FALSE)
 rm(dat.shp)
