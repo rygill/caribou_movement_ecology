@@ -81,9 +81,9 @@ results = read.csv('./data/home_range/Caribou_Results_with_Error_230213.csv')
 dat.b = rbind(p1, p2, du, po)
 
 #join spatial covariates with home range output:
-dat.b$joiner = paste(dat.b$BINOMIAL, '-',dat.b$ID)
-results$joiner = paste(results$BINOMIAL, '-', results$ID)
-dat.c = merge(results, dat.b, by = 'joiner')
+dat.b$key = paste(dat.b$BINOMIAL, '-',dat.b$ID)
+results$key = paste(results$BINOMIAL, '-', results$ID)
+dat.c = merge(results, dat.b, by = 'key')
 dat.c$period = dat.c$BINOMIAL
 
 #clean up:
@@ -92,7 +92,7 @@ dat.c = dat.c %>%
          'ID'= 'ID.x')
 
 #drop columns
-dat.c$joiner = dat.c$ID.y = dat.c$BINOMIAL.y = NULL
+dat.c$key = dat.c$ID.y = dat.c$BINOMIAL.y = NULL
 
 #get herd for each animal:
 herd = read.csv('./data/input_data/herd.csv')
