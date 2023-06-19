@@ -10,6 +10,8 @@ In places where data formatting requires changing period lines are denoted with:
 
 05.Batch_Run.r - relies on Fit_Mods.r to fit movement models using ctmm::ctmm.select. This script creates subdirectories and generates movement models and home range estimates. Outputs include movemement model object (rda), akde of home range as tif and shapefile and a file of home range metrics for each period for each animal.
 
+06a.load_merge_shapefiles_per_period - loads home range estimates from each period folder, merges them, projects them, saves only the estimate from each and saves as shapefile for each period used in script 06.
+
 06.extract.raster.95.hr.estimate.r - extracts the mean value of each of the landscape rasters for each home range for each period. The results for each individual for each period are appended to the results from script 05 to create a new dataset named Caribou_reesults_with_error_covariates_230214.csv
 
 07.HR_Regression - fits a generalized linear mixed model using the lme4 package to home range estimates.
