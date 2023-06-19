@@ -54,7 +54,7 @@ dat.shp = st_read(dsn = './data/home_range/merged_95_HR',
 #dat.shp = dat.shp[dat.shp$est == 'est',]
 
 #all raster values:
-dat.extract = extract(rstack1, dat.shp, fun = 'mean', sp = TRUE, bind = TRUE, na.rm = TRUE)
+dat.extract = extract(rstack1, dat.shp, fun = 'mean', bind = TRUE, na.rm = TRUE)
 
 dat.df = as.data.frame(dat.extract)
 dat.df$BINOMIAL = period
